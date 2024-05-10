@@ -40,11 +40,11 @@ include_once('includes/session.php');
             <div class="card bg-light text-dark">
                 <div class="card-header">
                     <!-- <a href="employees.php" class="btn btn-primary">Back</a> -->
-                    <h3>Dashboard <i class="fa fa-dashboard"></i></h3>
+                    <h3>Dashboard <i class="fa fa-hospital-o"></i></h3>
                     <div class="row g-3 my-2">
                         <div class="col-md-3">
                             <?php if($_SESSION["User"]["is_admin"]){?>
-                                <a href="employees.php" style="background-color: black; color: black; text-decoration: none">
+                                <a href="employees.php" style="background-color: blue; color: blue; text-decoration: none">
                                 <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                     <div>
                                         <h3 class="fs-2"><?= get_employees(); ?></h3>
@@ -55,7 +55,7 @@ include_once('includes/session.php');
                                 </a>
                             <?php }else{ ?>
                                 
-                                <a href="tasks.php" style="background-color: black; color: black; text-decoration: none"><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                                <a href="tasks.php" style="background-color: blue; color: blue; text-decoration: none"><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                     <div>
                                         <h3 class="fs-2"><?= get_assignedProjects(); ?></h3>
                                         <p class="fs-5">Assigned Patients</p>
@@ -68,18 +68,18 @@ include_once('includes/session.php');
                         
                         <div class="col-md-3">
                         <?php if($_SESSION["User"]["is_admin"]){?>
-                        <a href="projects.php" style="background-color: black; color: black; text-decoration: none">
+                        <a href="projects.php" style="background-color: blue; color: blue; text-decoration: none">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
                                     <h3 class="fs-2"><?= get_projects(); ?></h3>
                                     <p class="fs-5">Patients</p>
                                 </div>
                                 <i
-                                    class="fas fa-list-check fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                                    class="fas fa-users fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                             </a>
                             <?php }else{ ?>
-                                <a href="tasks.php" style="background-color: black; color: black; text-decoration: none"><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                                <a href="tasks.php" style="background-color: blue; color: blue; text-decoration: none"><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                     <div>
                                         <h3 class="fs-2 "><?= get_hours(); ?></h3>
                                         <p class="fs-5">Hours</p>
@@ -90,14 +90,14 @@ include_once('includes/session.php');
                         </div>
                         <div class="col-md-3">
                         <?php if($_SESSION["User"]["is_admin"]){?>
-                        <a href="projects.php" style="background-color: black; color: black; text-decoration: none">
+                        <a href="report.php" style="background-color: red; color: red; text-decoration: none">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2"><?= get_projects(); ?></h3>
-                                    <p class="fs-5">Possible Outbreaks</p>
+                                    <h3 class="fs-2" style="color:red;"><?= displayOutbreakCount(); ?></h3>
+                                    <p class="fs-5" style="color:red;">Possible Outbreaks</p>
                                 </div>
                                 <i
-                                    class="fas fa-list-check fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                                    class="fas fa-certificate fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                             </a>
                             <?php }else{ ?>
@@ -114,13 +114,13 @@ include_once('includes/session.php');
 
                         <div class="col-md-3">
                         <?php if($_SESSION["User"]["is_admin"]){?>
-                        <a href="clients.php" style="background-color: black; color: black; text-decoration: none">
+                        <a href="clients.php" style="background-color: blue; color: blue; text-decoration: none">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
                                     <h3 class="fs-2"><?= get_clients(); ?></h3>
                                     <p class="fs-5">Areas</p>
                                 </div>
-                                <i class="fas fa-users fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                                <i class="fas fa-podcast fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                             </div>
                             </a>
                             <?php }
@@ -134,88 +134,75 @@ include_once('includes/session.php');
                                 </div></a> -->
                             <?php } ?>
                         </div>
-
-                        <div class="col-md-3">
-                        <?php if($_SESSION["User"]["is_admin"]){?>                                          
-                        <a href="projects.php" style="background-color: black; color: black; text-decoration: none">
-                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                                <div>
-                                    <h3 class="fs-2"><?= get_completed(); ?></h3>
-                                    <p class="fs-5">Attended Areas</p>
-                                </div>
-                                <i class="fas fa-clock fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                            </div>
-                            </a>
-                            <?php }else{ ?>
-                                <!-- <a href="tasks.php" style="background-color: black; color: black; text-decoration: none"><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                                    <div>
-                                        <h3 class="fs-2"><?= get_tasks(); ?></h3>
-                                        <p class="fs-5">Logged Times</p>
-                                    </div>
-                                    <i class="fas fa-list fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                                </div></a> -->
-                            <?php } ?>
-                        </div>
-                            <!-- </a> -->
                     </div>
-                    <div></div>
-
-                    <!-- <div class="row g-3 my-2">
-                        <div class="col-md-3">
-                            <?php if($_SESSION["User"]["is_admin"]){?>
-                                <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                                    <div>
-                                        <h3 class="fs-2"><?= get_employees(); ?></h3>
-                                        <p class="fs-5">OVERDUE PROJECTS</p>
-                                    </div>
-                                    <i class="fas fa-users fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                                </div>
-                            <?php }else{ ?>
-                                <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                                    <div>
-                                        <h3 class="fs-2"><?= get_assignedProjects(); ?></h3>
-                                        <p class="fs-5">ACTIVE PROJECTS</p>
-                                    </div>
-                                    <i class="fas fa-project-diagram fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                                </div>
-                            <?php } ?>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                                <div>
-                                    <h3 class="fs-2"><?= get_tasks(); ?></h3>
-                                    <p class="fs-5">Tasks</p>
-                                </div>
-                                <i
-                                    class="fas fa-list-check fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                                <div>
-                                    <h3 class="fs-2"><?= get_hours(); ?></h3>
-                                    <p class="fs-5">Total Hours</p>
-                                </div>
-                                <i class="fas fa-clock fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                                <div>
-                                    <h3 class="fs-2">25</h3>
-                                    <p class="fs-5">Completed Projects</p>
-                                </div>
-                                <i class="fas fa-check-to-slot fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                            </div>
-                        </div>
-                    </div> -->
-
                 </div>
-                <!-- <br> -->
-                <div class="col-md-12">
+            </div>
+            <div class="card bg-light text-dark my-3">
+                
+                <div class="card-header" >
+                    <h3 style="color:red;">Possible Disease Outbreaks:</h3>
+                </div>
+                <div class="card-body">
+                    <?php
+                        // Function to fetch disease name from the database using ID
+                        function getDiseaseNameById($diseaseId) {
+                            global $conn;
+                            
+                            $sql = "SELECT disease_name FROM diseases WHERE disease_id = $diseaseId";
+                            $result = $conn->query($sql);
+                            
+                            if ($result && $result->num_rows > 0) {
+                                $row = $result->fetch_assoc();
+                                return $row['disease_name'];
+                            } else {
+                                return "Unknown Disease";
+                            }
+                        }
+
+                        // Function to predict disease outbreaks
+                        function predictOutbreak() {
+                            global $conn;
+                            $outbreakDiseases = array();
+
+                            // Fetch diseases and count the number of patients recorded per disease
+                            $sql = "SELECT disease_id, COUNT(*) AS patient_count FROM tasks GROUP BY disease_id HAVING COUNT(*) >= 3";
+                            $result = $conn->query($sql);
+                            
+                            if ($result && $result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    $diseaseId = $row['disease_id'];
+                                    $outbreakDiseases[] = $diseaseId;
+                                }
+                            }
+
+                            return $outbreakDiseases;
+                        }
+
+                        // Function to display the number of outbreaks
+                        function displayOutbreakCount() {
+                            $outbreakDiseases = predictOutbreak();
+                            return count($outbreakDiseases);
+                        }
+
+                        // Display outbreaks on the dashboard
+                        $outbreakDiseases = predictOutbreak();
+                        $outbreakMessage = "";
+                        if (!empty($outbreakDiseases)) {
+                            $outbreakMessage .= "<ul>";
+                            foreach ($outbreakDiseases as $diseaseId) {
+                                $diseaseName = getDiseaseNameById($diseaseId);
+                                $outbreakMessage .= "<li >$diseaseName</li>";
+                            }
+                            $outbreakMessage .= "</ul>";
+                        } else {
+                            $outbreakMessage .= "<p>No outbreaks detected.</p>";
+                        }
+
+                        echo $outbreakMessage;
+                    ?>
+                </div>
+            </div>
+            <div class="col-md-12">
                                  <?php if($_SESSION["User"]["is_admin"]){?>
                              <div class="card-body">
                              <div class="row my-2">
@@ -391,12 +378,15 @@ include_once('includes/session.php');
                 </div>
                 
             </div>
-           
-         </div>
+        </div>
     </div>
+    
     <?php require('includes/footer.php');?>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
 <?php
 
 function get_employees(){
@@ -428,8 +418,8 @@ function get_projects(){
 function get_outbreaks(){
     global $conn;
     $sql = "SELECT * FROM projects
-    left join status ON projects.status_id = status.status_id
-    WHERE status.status_id = 3 "; 
+    left join diseases ON projects.disease_id = diseases.disease_id
+    WHERE diseases.disease_id = 2 "; 
     $result = $conn->query($sql);
                         
     return $result->num_rows;

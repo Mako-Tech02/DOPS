@@ -54,14 +54,14 @@ include_once('includes/session.php');
                         <!-- <th>ID</th> -->
                         <th>Area</th>
                         <th>Patient</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th style="width: 30%;">Patient Details</th>
+                        <!-- <th>Start</th>
+                        <th>End</th> -->
+                        <th style="width: 30%;">Patient Symptoms</th>
                         <th>Capture Date</th>
                         <th>Start</th>
                         <th>End</th>
                         <th>Hours</th>
-                        <th>Disease</th>
+                        <th>Possible Disease</th>
                         <!-- <th>Cost</th> -->
                         <th>Actions</th>
                     </tr>
@@ -90,8 +90,8 @@ include_once('includes/session.php');
                                     <!-- <td><?= $i; ?></td> -->
                                     <td><?= $row["client_name"]; ?></td>
                                     <td><?= $row["project_name"]; ?></td>
-                                    <td><?= $row["start_date"]; ?></td>
-                                    <td><?= $row["end_date"]; ?></td>
+                                    <!-- <td><?= $row["start_date"]; ?></td>
+                                    <td><?= $row["end_date"]; ?></td> -->
                                     <td style="width: 30%;"><?= $row["task_name"]; ?></td>
                                     <td><?= $row["date"]; ?></td>
                                     <td><?= $row["start"]; ?></td>

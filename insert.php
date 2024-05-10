@@ -13,10 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $end = $_POST["end"];
     $hours = number_format(timeToDecimal($end) - timeToDecimal($start), 2);
     // $hours = 1;
-    $start_date = get_start($proj_id);
-    $end_date = get_end($proj_id);
+    // $start_date = get_start($proj_id);
+    // $end_date = get_end($proj_id);
     
-    if($date >= $start_date && $date <= $end_date){
+    if($date){
         $sql = "INSERT INTO tasks (`task_name`, `project_id`) VALUES('$description', '$proj_id')";
         if ($conn->query($sql) === TRUE) {
             $task_id = $conn->insert_id;
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }   
     }else{
         header('Content-Type: application/json');
-        echo json_encode(array("error"=> "Task date must be between '$start_date' and '$end_date' !"));
+        // echo json_encode(array("error"=> "Task date must be between '$start_date' and '$end_date' !"));
     }
    
 }
@@ -89,39 +89,39 @@ function POSTProject($proj_id){
         return "";
     }
 }
-function get_start($proj_id){
-    global $conn;
+// function get_start($proj_id){
+//     global $conn;
 
-    $sql = "SELECT `start_date` 
-    FROM projects
-    where project_id = '$proj_id' "; // Adjust the SQL query as needed
-    $result = $conn->query($sql);
+//     $sql = "SELECT `start_date` 
+//     FROM projects
+//     where project_id = '$proj_id' "; // Adjust the SQL query as needed
+//     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-       $row = $result->fetch_assoc();
+//     if ($result->num_rows > 0) {
+//        $row = $result->fetch_assoc();
 
-       return $row["start_date"];
-    }else{
-        return "";
-    }
-}
+//        return $row["start_date"];
+//     }else{
+//         return "";
+//     }
+// }
 
-function get_end($proj_id){
-    global $conn;
+// function get_end($proj_id){
+//     global $conn;
 
-    $sql = "SELECT `end_date` 
-    FROM projects
-    where project_id = '$proj_id' "; // Adjust the SQL query as needed
-    $result = $conn->query($sql);
+//     $sql = "SELECT `end_date` 
+//     FROM projects
+//     where project_id = '$proj_id' "; // Adjust the SQL query as needed
+//     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-       $row = $result->fetch_assoc();
+//     if ($result->num_rows > 0) {
+//        $row = $result->fetch_assoc();
 
-       return $row["end_date"];
-    }else{
-        return "";
-    }
-}
+//        return $row["end_date"];
+//     }else{
+//         return "";
+//     }
+// }
 
 function timeToDecimal($time) {
     list($hours, $minutes) = explode(':', $time);

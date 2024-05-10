@@ -1,5 +1,22 @@
 <?php
 include_once('includes/session.php');
+function validateEmail($email) {
+    // Regular expression pattern for basic email validation
+    $pattern = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/';
+    return preg_match($pattern, $email);
+}
+function emailExist($email){
+    global $conn;
+
+    $sql = "SELECT * FROM employees WHERE `Email` = '$email' AND employee_id <> '$id' "; // Adjust the SQL query as needed
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        return true;
+    }else{
+        return false;
+    }
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $is_admin = (isset($_POST["is_admin"])) ? 1 : 0;

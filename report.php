@@ -34,6 +34,7 @@ if (isset($_GET['export_csv'])) {
         'Patient',
         'Area',
         'Patient Details',
+        'Possible disease',
        
     );
 
@@ -46,6 +47,7 @@ if (isset($_GET['export_csv'])) {
             LEFT JOIN tasks ON timesheets.task_id = tasks.task_id
             LEFT JOIN employees ON timesheets.employee_id = employees.employee_id
             LEFT JOIN projects ON tasks.project_id = projects.project_id
+            left join diseases ON tasks.disease_id = diseases.disease_id
             LEFT JOIN clients ON projects.client_id = clients.client_id
             LEFT JOIN positions ON employees.position_id = positions.position_id
             WHERE timesheet_id > 0 $q ";
@@ -60,6 +62,7 @@ if (isset($_GET['export_csv'])) {
             $row["project_name"],
             $row["client_name"],
             $row["task_name"],
+            $row["disease_name"],
            
         );
         fputcsv($output, $csv_row);
@@ -245,7 +248,8 @@ if (isset($_GET['export_csv'])) {
                         <th>Position</th>
                         <th>Area</th>
                         <th>Patient</th>
-                        <th>Patient Details</th>
+                        <th>Patient Symptoms</th>
+                        <th>Possible Disease</th>
                         <!-- <th>Hours Worked</th> -->
                         <!-- <th>Rate</th>
                         <th>Cost</th> -->
@@ -298,6 +302,7 @@ if (isset($_GET['export_csv'])) {
                         LEFT JOIN tasks ON timesheets.task_id = tasks.task_id
                         LEFT JOIN employees ON timesheets.employee_id = employees.employee_id
                         LEFT JOIN projects ON tasks.project_id = projects.project_id
+                        left join diseases ON tasks.disease_id = diseases.disease_id
                         LEFT JOIN clients ON projects.client_id = clients.client_id
                         LEFT JOIN positions ON employees.position_id = positions.position_id
                         WHERE timesheet_id > 0 and active = 1 $q"; // Adjust the SQL query as needed
@@ -314,6 +319,7 @@ if (isset($_GET['export_csv'])) {
                                 <td><?= $row["client_name"];?></td>
                                 <td><?= $row["project_name"];?></td>
                                 <td><?= $row["task_name"];?></td>
+                                <td><?= $row["disease_name"];?></td>
                                 <!-- <td><?= $row["hours"];?></td>
                                 <td>R <?= ($row["rate"] !== null) ? $row["rate"] : 850; ?></td>
 

@@ -81,9 +81,9 @@ $page_name="employees";
                               
                             <!-- Dropdown for selecting project -->
                                    <div class="col mb-2">
-                                        <label for="project_name">Area</label> </br>
+                                        <label for="project_name">Patient</label> </br>
                                             <select name="project_id" class="" id="project_name">
-                                                 <option value="">Select Area</option>
+                                                 <option value="">Select Patient</option>
                                                      <?php
                                                     $sql = "SELECT * FROM projects  "; // Adjust the SQL query as needed
                                                      $result = $conn->query($sql);
