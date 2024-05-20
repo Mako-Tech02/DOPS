@@ -19,11 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["success"] = " Assigned successfully!";
                 echo '<script>window.location.href = "assign.php" </script>';
             }else{
-                $_SESSION["error"] = "Error assigning employee to a project!";
+                $_SESSION["error"] = "Error assigning employee to a patient!";
                 echo '<script>window.history.back();</script>';
             }   
         }else{
-            $_SESSION["error"] = "Employee already assigned to project!";
+            $_SESSION["error"] = "This Employee is already attending to this patient!";
             echo '<script>window.history.back();</script>';
         }
     }
