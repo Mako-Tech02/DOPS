@@ -28,6 +28,8 @@ $page_name="employees";
                 <div class="card-body">
                         <button data-bs-toggle="collapse" data-bs-target="#addnewForm" class="btn btn-primary">Add New</button><div></div>
                     <div id="addnewForm" class="collapse">
+
+                    <!--button class="btn btn-primary" onclick="window.location.href='employee_add.php'">Add New</button-->
                     <form method="post" action="employee_add.php" id="employeeForm" onsubmit="submitForm()">
                             <div class="row mb-2">
                                 <div class="col"><br>
