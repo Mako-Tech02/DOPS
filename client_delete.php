@@ -9,16 +9,16 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     // Prepare and execute SQL DELETE query
     $sql = "DELETE FROM clients WHERE client_id = $client_id";
     if ($conn->query($sql) === TRUE) {
-        $_SESSION["success"] = "Client deleted successfully.";
+        $_SESSION["success"] = "Area deleted successfully.";
     } else {
-        $_SESSION["error"] = "Error deleting client: " . $conn->error;
+        $_SESSION["error"] = "Error deleting area: " . $conn->error;
     }
     
     // Redirect back to the list of projects
     header("Location: clients.php"); // Change 'index.php' to the appropriate URL
     exit();
 } else {
-    $_SESSION["error"] = "Invalid project ID.";
+    $_SESSION["error"] = "Invalid patient ID.";
     header("Location: clients.php"); // Change 'index.php' to the appropriate URL
     exit();
 }
