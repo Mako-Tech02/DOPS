@@ -28,11 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             WHERE active = '1' AND task_id = '$task_id' ";
 
             if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
-                $_SESSION["success"] = "Task Updated successfully!";
+                $_SESSION["success"] = "Symptom Updated successfully!";
                 header("Location: task_edit.php?id=$task_id"); // Use PHP header for redirection
                 exit();
             } else {
-                $_SESSION["error"] = "Error updating project!";
+                $_SESSION["error"] = "Error updating patient!";
                 header('Location: task_edit.php?id='.$task_id);
                 exit();
             }   

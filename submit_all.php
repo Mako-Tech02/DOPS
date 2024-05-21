@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET["submit"] == "all") {
     $activeTasksCount = $row['count'];
 
     if ($activeTasksCount > 0) {
-        $_SESSION["success"] = "All tasks submitted!";
+        $_SESSION["success"] = "All symptoms submitted!";
     } else {
-        $_SESSION["error"] = "Please log in tasks to submit!";
+        $_SESSION["error"] = "Please log in symptoms to submit!";
     }
 
     // Update all tasks to active
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET["submit"] == "all") {
         header("Location: tasks.php");
         exit();
     } else {
-        $_SESSION["error"] = "Error submitting tasks!";
+        $_SESSION["error"] = "Error submitting symptoms!";
         header('Location: tasks.php');
         exit();
     }

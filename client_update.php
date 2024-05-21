@@ -18,11 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["client"])) {
             $sql = "UPDATE clients SET client_name = '$client_name'  WHERE client_id = '$client_id'";
 
             if ($conn->query($sql) === TRUE) {
-                $_SESSION["success"] = "Client Updated successfully!";
+                $_SESSION["success"] = "Area Updated successfully!";
                 header("Location: client_edit.php?id=$client_id"); // Use PHP header for redirection
                 exit();
             } else {
-                $_SESSION["error"] = "Error updating client!";
+                $_SESSION["error"] = "Error updating area!";
                 header('Location: client_edit.php?id='.$client_id);
                 exit();
             }   

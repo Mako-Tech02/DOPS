@@ -155,7 +155,7 @@ include_once('includes/session.php');
                                 $row = $result->fetch_assoc();
                                 return $row['disease_name'];
                             } else {
-                                return "Unknown Disease";
+                                return "No possible outbreaks";
                             }
                         }
 

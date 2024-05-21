@@ -27,11 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "UPDATE projects SET project_name = '$project_name', `start_date` = '$start_date', `end_date` = '$end_date', client_id ='$client_id', employee_id = '$employee_id', status_id = '$status_id' WHERE project_id = '$project_id' ";
 
             if ($conn->query($sql) === TRUE) {
-                $_SESSION["success"] = "Project Updated successfully!";
+                $_SESSION["success"] = "Patient Updated successfully!";
                 header("Location: project_edit.php?id=$project_id"); // Use PHP header for redirection
                 exit();
             } else {
-                $_SESSION["error"] = "Error updating project!";
+                $_SESSION["error"] = "Error updating patient!";
                 header('Location: project_edit.php?id='.$project_id);
                 exit();
             }   

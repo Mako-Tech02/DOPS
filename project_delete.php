@@ -16,16 +16,16 @@ if(isset($_GET["id"])) {
         if ($conn->query($delete_project_query)) {
             // Commit the transaction
             $conn->commit();
-            $_SESSION["success"] = "Project and associated tasks have been deleted.";
+            $_SESSION["success"] = "Patient and associated symptom have been deleted.";
         } else {
             // Rollback the transaction on failure
             $conn->rollback();
-            $_SESSION["error"] = "Error deleting project: " . $conn->error;
+            $_SESSION["error"] = "Error deleting patient: " . $conn->error;
         }
     } else {
         // Rollback the transaction on failure
         $conn->rollback();
-        $_SESSION["error"] = "Error deleting associated tasks: " . $conn->error;
+        $_SESSION["error"] = "Error deleting associated sympton: " . $conn->error;
     }
 
     header("Location: projects.php"); // Redirect back to projects page
