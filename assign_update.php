@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("iii", $employee_id, $rate, $project_id);
                 if (!$stmt->execute()) {
-                    $_SESSION["error"] = "Error updating employee assignment!";
+                    $_SESSION["error"] = "Error updating patient assignment!";
                     $conn->rollback();
                     header('Location: assign_edit.php?id='.$project_id);
                     exit();

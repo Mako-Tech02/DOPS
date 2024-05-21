@@ -88,13 +88,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $stmt->bind_param("ii", $employee_id, $project_id);
                         if ($stmt->execute()) {
                             // Employee added and project assigned successfully
-                            $_SESSION["success"] = "Employee added and project assigned successfully!";
+                            $_SESSION["success"] = "Employee added and patient assigned successfully!";
                         } else {
-                            $_SESSION["error"] = "Error assigning the project.";
+                            $_SESSION["error"] = "Error assigning the patient.";
                         }
                     } else {
                         // No project selected
-                        $_SESSION["error"] = "Please select a project to assign to the employee.";
+                        $_SESSION["error"] = "Please select a patient to assign to the employee.";
                     }
                 } else {
                     // Error adding the employee
