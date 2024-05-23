@@ -5,7 +5,7 @@
 // $password = "cVTVnmJi9tkzv9PZF3y8";
 
 $servername = "localhost";
-$dbname = "dops";
+$dbname = "timesheets";
 $username = "root";
 $password = "";
 
