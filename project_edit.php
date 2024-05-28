@@ -89,6 +89,10 @@ include_once('includes/session.php');
                             </div> -->
                             </div>
                             <div class="col">
+                                <label for="project">Patient ID</label>
+                                <input type="text" value="<?= $project["project_id"];?>" placeholder="Patient id" class="form-control" name="project_name" id="project_id" />
+                            </div>
+                            <div class="col">
                                 <label for="project">Patient</label>
                                 <input type="text" value="<?= $project["project_name"];?>" placeholder="Project Name" class="form-control" name="project_name" id="project_name" />
                             </div>

@@ -124,6 +124,7 @@ $current_date = date('Y-m-d');
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>Patient ID</th>
                             <th>Area</th>
                             <th>Patient</th>
                             <th>Start Date</th>
@@ -149,6 +150,7 @@ $current_date = date('Y-m-d');
                                     $i ++;
                         ?>
                         <tr>
+                        <td><?= $row["project_id"]; ?></td>
                             <td><?= $row["client_name"]; ?></td>
                             <td><?= $row["project_name"]; ?></td>
                             <td><?= date("Y-M-d", strtotime($row["start_date"])); ?></td>
