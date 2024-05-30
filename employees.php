@@ -142,7 +142,7 @@ $page_name="employees";
                                 <th>Position</th>
                                 <th>Email</th>
                                 <th>Is Admin</th>
-                                <th>Actions</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody id="activeTableBody">
